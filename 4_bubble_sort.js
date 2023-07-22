@@ -13,9 +13,10 @@
  */
 function swap (A, i, j) {
   // 定义 t，保存 i 索引的值，赋值：i 索引为 j 索引的值，j 索引值为 t
-  const t = A[i]
-  A[i] = A[j]
-  A[j] = t
+  // const t = A[i]
+  // A[i] = A[j]
+  // A[j] = t
+  [A[i], A[j]] = [A[j], A[i]]
 }
 /**
  * 冒泡排序
@@ -39,5 +40,7 @@ function bubble_sort(A){
   }
   return A
 }
-const A = [13, 7, 9, 3, 2] // 原数组
-console.log(bubble_sort(A))
+
+module.exports = {
+  swap
+}
