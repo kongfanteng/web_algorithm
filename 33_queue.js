@@ -101,14 +101,32 @@ class Queue {
    */
   dequeue(){
     // - 判断队列无数据，抛出错误 Queue Underflow
-    if (this.size === this.max) throw 'Queue Underflow'
+    if (this.size === 0) throw 'Queue Underflow'
     // - 队列存储数组 {@link data} 根据出队指针 {@link q} 查找到对应数据并定义 {@link item} 且指针 {@link q} 加一
     const item = this.data[this.q++]
     // - 队列大小 {@link size} 加一
-    this.size++
+    this.size--
     // - 出队指针 {@link q} 等于最大容量 {@link max} 时，{@link q} 置为 0
     if(this.q === this.max) this.q = 0
     // - 返回出队的数据 {@link item}
     return item
   }
+  /**
+   * 查看一下队列下一个需要出队的元素
+   * @return {null|number} 返回为对应值或 null
+   */
+  peek () {
+    if (this.size === 0) return null
+    return this.data[this.q]
+  }
+  /**
+   * 队列中元素个数
+   * @returns {number} 队列中元素个数
+   */
+  size (){
+    return this.size
+  }
+}
+module.exports = {
+  Queue
 }
